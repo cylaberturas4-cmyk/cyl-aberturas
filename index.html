@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>CyL Aberturas | La mejor calidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #198754;
+            --dark-color: #212529;
+            --light-bg: #ffffff;
+            --white: #ffffff;
+            --gray-text: #495057;
+            --shadow: 0 6px 25px rgba(0, 0, 0, 0.18);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        
+        body { 
+            color: var(--dark-color); 
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(240, 244, 250, 0.4)), url('https://i.ibb.co/Swh3gJ76/2544.jpg');
+            background-repeat: repeat;
+            background-size: 350px;
+            line-height: 1.6; 
+        }
+
+        /* PANTALLA DE INICIO PROFESIONAL (SIN FONDO CUADRADO) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #198754 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .splash-logo-container {
+            text-align: center;
+            animation: professionalZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .splash-logo-container img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 4px solid #ffc107;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        .splash-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .splash-subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffc107;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        @keyframes professionalZoom {
+            0% { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--dark-color); margin-bottom: 10px; font-weight: 700; text-shadow: 0 1px 3px rgba(255,255,255,0.9); }
+        .section-title p { color: var(--gray-text); font-size: 1.1rem; font-weight: 600; }
+
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 6px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: var(--transition); text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .btn-primary { background-color: var(--primary-color); color: var(--white); }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-success { background-color: var(--secondary-color); color: var(--white); }
+        .btn-success:hover { opacity: 0.9; }
+        .btn-secondary { background-color: #6c757d; color: var(--white); }
+        .btn-danger { background-color: #dc3545; color: var(--white); padding: 6px 10px; font-size: 0.85rem; }
+
+        .navbar { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #198754 100%); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); 
+            z-index: 1000; 
+            padding: 12px 0; 
+            border-bottom: 4px solid #ffc107;
+        }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; background: rgba(255, 255, 255, 0.95); padding: 5px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .logo-container img { max-height: 60px; width: auto; vertical-align: middle; border-radius: 6px; }
+        .logo-slogan { font-size: 1rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.5px; border-left: 3px solid var(--primary-color); padding-left: 10px; }
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #ffffff; font-weight: 600; transition: var(--transition); font-size: 0.95rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+        .nav-links a:hover { color: #ffc107; }
+        .nav-links .btn-primary { background-color: #ffc107; color: #212529; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .nav-links .btn-primary:hover { background-color: #ffca2c; color: #212529; }
+
+        .hero { padding-top: 160px; padding-bottom: 60px; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .hero-text h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; color: var(--dark-color); text-shadow: 0 1px 3px rgba(255,255,255,0.9); }
+        .hero-text p { font-size: 1.15rem; color: #333333; margin-bottom: 30px; font-weight: 600; text-shadow: 0 1px 2px rgba(255,255,255,0.9); }
+
+        .carousel-container { position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 12px; box-shadow: var(--shadow); border: 3px solid #ffffff; background: #ffffff; }
+        .carousel-slide { display: flex; width: 100%; height: 100%; transition: transform 0.5s ease-in-out; }
+        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 10; }
+        .carousel-btn:hover { background: rgba(0,0,0,0.9); }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .products { 
+            background: linear-gradient(135deg, rgba(225, 238, 255, 0.95) 0%, rgba(200, 222, 255, 0.95) 100%); 
+            border-top: 2px solid #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+        .product-card { 
+            background: #ffffff; 
+            border-radius: 14px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow); 
+            border: 2px solid var(--primary-color);
+            transition: all 0.4s ease; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .product-card.reveal-active { opacity: 1; transform: translateY(0); }
+        .product-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 12px 30px rgba(13, 110, 253, 0.3); border-color: #0b5ed7; }
+
+        .product-card-img-container { width: 100%; height: 250px; overflow: hidden; }
+        .product-card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .product-card:hover .product-card-img-container img { transform: scale(1.05); }
+
+        .product-info { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+        .product-info h3 { margin-bottom: 10px; color: var(--dark-color); }
+        .product-info p { color: var(--gray-text); font-size: 0.95rem; margin-bottom: 15px; }
+        .product-info .price { font-size: 1.15rem; font-weight: 700; color: var(--primary-color); margin-bottom: 15px; }
+
+        .models-section { padding: 60px 0; }
+        .models-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid rgba(13, 110, 253, 0.3);
+            border-radius: 20px;
+            padding: 40px 25px;
+            box-shadow: var(--shadow);
+        }
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 35px 20px;
+            max-width: 1050px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+        .model-circle-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: var(--transition); width: 100%; }
+        .model-circle-item:hover { transform: translateY(-8px); }
+        .circle-thumb {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--white);
+            outline: 3px solid var(--primary-color);
+            box-shadow: 0 8px 22px rgba(13, 110, 253, 0.3);
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        .model-circle-item:hover .circle-thumb { outline-color: #0b5ed7; box-shadow: 0 12px 30px rgba(13, 110, 253, 0.45); }
+        .circle-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .circle-label { font-size: 0.95rem; font-weight: 700; margin-top: 12px; color: var(--dark-color); text-align: center; line-height: 1.3; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .feature-card { background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: var(--shadow); border-top: 4px solid var(--primary-color); text-align: center; }
+        .feature-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(4px); }
+        .modal-content { background-color: #fff; margin: 3% auto; padding: 25px; border-radius: 12px; width: 95%; max-width: 900px; box-shadow: 0 5px 25px rgba(0,0,0,0.3); position: relative; animation: modalFadeIn 0.3s ease; }
+        @keyframes modalFadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #aaa; cursor: pointer; transition: var(--transition); }
+        .close-modal:hover { color: var(--dark-color); }
+        .modal-title { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px; text-align: center; }
+
+        .series-header { background-color: var(--primary-color); color: var(--white); padding: 8px 15px; border-radius: 6px; margin-top: 20px; margin-bottom: 10px; font-size: 1.1rem; font-weight: 600; }
+        .table-responsive { overflow-x: auto; max-height: 380px; overflow-y: auto; }
+        .pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .pricing-table th, .pricing-table td { border: 1px solid #dee2e6; padding: 8px 10px; text-align: center; font-size: 0.9rem; vertical-align: middle; }
+        .pricing-table th { background-color: #f1f3f5; color: var(--dark-color); font-weight: 600; position: sticky; top: 0; z-index: 2; }
+        .pricing-table tr:nth-child(even) { background-color: #f8f9fa; }
+
+        .table-qty-box { display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .qty-btn { background-color: #e9ecef; border: 1px solid #ced4da; width: 26px; height: 26px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .qty-btn:hover { background-color: #dee2e6; }
+        .qty-input { width: 36px; height: 26px; text-align: center; font-weight: 600; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.85rem; }
+
+        .cart-float { position: fixed; width: 60px; height: 60px; bottom: 25px; left: 25px; background-color: var(--primary-color); color: var(--white); border-radius: 50px; text-align: center; font-size: 24px; box-shadow: 2px 2px 15px rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .cart-badge { position: absolute; top: -5px; right: -5px; background-color: #dc3545; color: white; border-radius: 50%; padding: 2px 8px; font-size: 12px; font-weight: bold; }
+        .cart-modal-content { max-width: 600px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        .cart-item-title { font-weight: 600; font-size: 0.95rem; }
+        .cart-item-price { color: var(--gray-text); font-size: 0.85rem; }
+        .cart-controls { display: flex; align-items: center; gap: 10px; }
+        .cart-qty-btn { background: #e9ecef; border: none; width: 28px; height: 28px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        .cart-total { font-size: 1.3rem; font-weight: 700; text-align: right; margin: 15px 0; color: var(--dark-color); }
+
+        .checkout-form-box { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 15px; margin-top: 15px; }
+        .checkout-form-box h4 { margin-bottom: 12px; color: var(--primary-color); font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+        .cart-input-group { margin-bottom: 10px; }
+        .cart-input-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
+        .cart-input-group input, .cart-input-group select, .cart-input-group textarea { width: 100%; padding: 8px 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.9rem; }
+        .mp-fee-note { font-size: 0.78rem; color: #dc3545; font-weight: 600; margin-top: 4px; display: none; }
+
+        .contact-form-container { max-width: 700px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: var(--shadow); border: 1px solid #dee2e6; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1rem; }
+
+        .faq { background-color: #ffffff; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .faq-accordion { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: #ffffff; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; border: 1px solid #e9ecef; }
+        .faq-question { padding: 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { padding: 0 20px 20px 20px; display: none; color: var(--gray-text); }
+        .faq-item.active .faq-answer { display: block; }
+
+        .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 30px; }
+        .footer-info h3 { color: #ffc107; margin-bottom: 15px; font-size: 1.4rem; }
+        .footer-info p { color: #adb5bd; margin-bottom: 15px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255,255,255,0.1); color: white; border-radius: 50%; font-size: 1.2rem; transition: var(--transition); text-decoration: none; }
+        .social-icons a:hover { background: var(--primary-color); transform: translateY(-3px); }
+        .social-icons a.whatsapp:hover { background: #25d366; }
+        .social-icons a.facebook:hover { background: #1877f2; }
+        .social-icons a.instagram:hover { background: #e4405f; }
+
+        .map-container { width: 100%; height: 250px; border-radius: 8px; overflow: hidden; border: 3px solid #ffc107; box-shadow: var(--shadow); position: relative; display: block; text-decoration: none; }
+        .map-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .map-container:hover img { transform: scale(1.03); }
+        .map-overlay { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.75); color: white; text-align: center; padding: 8px; font-size: 0.9rem; font-weight: 600; }
+
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 25px; right: 25px; background-color: #25d366; color: var(--white); border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 15px rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+        footer { background-color: var(--dark-color); color: var(--white); padding: 50px 0 20px 0; border-top: 4px solid #ffc107; }
+        .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #adb5bd; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO / SPLASH SCREEN PROFESIONAL -->
+    <div id="splash-screen">
+        <div class="splash-logo-container">
+            <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas">
+            <div class="splash-title">CyL Aberturas</div>
+            <div class="splash-subtitle">La mejor calidad</div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas" loading="lazy">
+                <span class="logo-slogan">La mejor calidad</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#cotizar">Cotizar</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#cotizar" class="btn btn-primary">Solicitar Presupuesto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Transforma tus proyectos con la mejor calidad y precisión</h1>
+                <p>Ofrecemos soluciones de alto rendimiento diseñadas a la medida de tus necesidades. Garantía, calidad y atención personalizada.</p>
+                <a href="#cotizar" class="btn btn-primary">Pedir Cotización Sin Cargo</a>
+            </div>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="prevHeroBtn">&#10094;</button>
+                <div class="carousel-slide" id="heroCarouselSlide">
+                    <img src="https://i.ibb.co/wZFgZvbC/643901228-1500438388749638-9094620843654075251-n.jpg" alt="Trabajo 1" fetchpriority="high">
+                    <img src="https://i.ibb.co/8njwmbXP/577833759-1403426591784152-9110541014077908932-n.jpg" alt="Trabajo 2" loading="lazy">
+                    <img src="https://i.ibb.co/KpGZcRWN/582951910-1414367890690022-782879907260960151-n.jpg" alt="Trabajo 3" loading="lazy">
+                    <img src="https://i.ibb.co/whDjjf4L/577663335-1403426861784125-1481253770357942345-n.jpg" alt="Trabajo 4" loading="lazy">
+                </div>
+                <button class="carousel-btn next-btn" id="nextHeroBtn">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Soluciones Destacadas</h2>
+                <p>Explora nuestras opciones principales</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" style="transition-delay: 0.1s;">
+                    <div class="product-card-img-container"><img src="https://i.ibb.co/GfyqkC3D/571319286-1397624182364393-4471381667043964173-n.jpg" alt="Ventanas Estándar" loading="lazy"></div>
+                    <div class="product-info">
+                        <h3>Ventanas Estándar (Serie 20 y 25)</h3>
+                        <p>Ventanas corredizas de 2 hojas en aluminio con vidrio 4mm.</p>
+                        <div class="price">Precios desde $1.450</div>
+                        <button class="btn btn-primary" id="openStandardModal">Ver Medidas y Precios</button>
+                    </div>
+                </div>
+                <div class="product-card" style="transition-delay: 0.25s;">
+                    <div class="product-card-img-container"><img src="https://i.ibb.co/b5wJNbsP/742277997-1623931336400342-937689476879455317-n.jpg" alt="Ventanas Monoblock" loading="lazy"></div>
+                    <div class="product-info">
+                        <h3>Ventanas Monoblock</h3>
+                        <p>Ventanas integradas con cortina de enrollar en PVC blanco (española).</p>
+                        <div class="price">Precios desde $7.490</div>
+                        <button class="btn btn-primary" id="openMonoblockModal">Ver Medidas y Precios</button>
+                    </div>
+                </div>
+                <div class="product-card" style="transition-delay: 0.4s;">
+                    <div class="product-card-img-container"><img src="https://i.ibb.co/dshBGp8f/505831345-1270301711763308-1544693537818340950-n.jpg" alt="Puertas Estándar" loading="lazy"></div>
+                    <div class="product-info">
+                        <h3>Puertas Estándar de Aluminio</h3>
+                        <p>Puertas de aluminio estándar de una o dos hojas.</p>
+                        <div class="price">Precios desde $7.590</div>
+                        <button class="btn btn-primary" id="openDoorsModal">Ver Medidas y Precios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modelos" class="models-section">
+        <div class="container">
+            <div class="models-wrapper">
+                <div class="section-title">
+                    <h2>Explora Nuestros Diseños</h2>
+                    <p>Haz clic en cualquier modelo para ver su imagen y configurar medidas y accesorios</p>
+                </div>
+                <div class="models-grid">
+                    <div class="model-circle-item" onclick="openCircleDetail(1)"><div class="circle-thumb"><img src="https://i.ibb.co/wZFgZvbC/643901228-1500438388749638-9094620843654075251-n.jpg" alt="Monoblock negro" loading="lazy"></div><span class="circle-label">Monoblock negro</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(2)"><div class="circle-thumb"><img src="https://i.ibb.co/8njwmbXP/577833759-1403426591784152-9110541014077908932-n.jpg" alt="Ventana Colonial" loading="lazy"></div><span class="circle-label">Ventana Colonial</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(3)"><div class="circle-thumb"><img src="https://i.ibb.co/KpGZcRWN/582951910-1414367890690022-782879907260960151-n.jpg" alt="Monoblock blanco" loading="lazy"></div><span class="circle-label">Monoblock blanco</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(4)"><div class="circle-thumb"><img src="https://i.ibb.co/whDjjf4L/577663335-1403426861784125-1481253770357942345-n.jpg" alt="Puertas de aluminio" loading="lazy"></div><span class="circle-label">Puertas de aluminio</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(5)"><div class="circle-thumb"><img src="https://i.ibb.co/GfyqkC3D/571319286-1397624182364393-4471381667043964173-n.jpg" alt="Ventanas a medida" loading="lazy"></div><span class="circle-label">Ventanas a medida</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(6)"><div class="circle-thumb"><img src="https://i.ibb.co/b5wJNbsP/742277997-1623931336400342-937689476879455317-n.jpg" alt="Monoblock a medida" loading="lazy"></div><span class="circle-label">Monoblock a medida</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(7)"><div class="circle-thumb"><img src="https://i.ibb.co/BKnf7Sm5/Whats-App-Image-2026-10-12-at-4-03-52-PM-1.jpg" alt="Ventanas proyectantes" loading="lazy"></div><span class="circle-label">Ventanas proyectantes</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(8)"><div class="circle-thumb"><img src="https://i.ibb.co/jZ4Mcyk4/Whats-App-Image-2026-10-12-at-4-03-52-PM.jpg" alt="Ventana tabaquera" loading="lazy"></div><span class="circle-label">Ventana tabaquera</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(9)"><div class="circle-thumb"><img src="https://i.ibb.co/Tx8qX9b9/Whats-App-Image-2026-10-12-at-4-03-51-PM-1.jpg" alt="Paño fijo a medida" loading="lazy"></div><span class="circle-label">Paño fijo a medida</span></div>
+                    <div class="model-circle-item" onclick="openCircleDetail(10)"><div class="circle-thumb"><img src="https://i.ibb.co/6RB5Ywq0/Whats-App-Image-2026-10-12-at-4-03-51-PM.jpg" alt="Ventanas batientes" loading="lazy"></div><span class="circle-label">Ventanas batientes</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegirnos?</h2>
+                <p>Nos destacamos por ofrecer valor real y respaldo continuo</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card"><i class="fa-solid fa-award"></i><h3>Alta Calidad</h3><p>Utilizamos únicamente materiales y procesos certificados de primer nivel.</p></div>
+                <div class="feature-card"><i class="fa-solid fa-truck-fast"></i><h3>Entrega Rápida</h3><p>Optimizamos los tiempos para cumplir estrictamente con los plazos pactados.</p></div>
+                <div class="feature-card"><i class="fa-solid fa-headset"></i><h3>Asesoramiento Directo</h3><p>Atención directa y personalizada para guiarte en la mejor elección.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cotizar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solicita tu Presupuesto o Pedido</h2>
+                <p>Completa tus datos requeridos para enviarnos tu consulta directa</p>
+            </div>
+            <div class="contact-form-container">
+                <form id="leadForm">
+                    <div class="form-group"><label>Nombre y Apellido *</label><input type="text" id="name" placeholder="Ej: Juan Pérez" required></div>
+                    <div class="form-group"><label>Teléfono / WhatsApp *</label><input type="tel" id="phone" placeholder="Ej: 098 182 510" required></div>
+                    <div class="form-group"><label>Dirección de Entrega / Localidad *</label><input type="text" id="address" placeholder="Ej: Av. Italia 1234, Montevideo" required></div>
+                    <div class="form-group">
+                        <label>Descripción del producto con medidas a cotizar *</label>
+                        <textarea id="message" rows="3" placeholder="Detalla los productos, líneas y medidas necesarias..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-file-arrow-up"></i> Adjuntar Plano, Croquis o Imagen (Opcional)</label>
+                        <input type="file" id="projectFile" accept="image/*,application/pdf" style="padding: 10px; background: #f8f9fa;">
+                        <small style="color: var(--gray-text); display: block; margin-top: 4px;">Puedes adjuntar una foto de tu plano, croquis o archivo PDF.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Consulta por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section><section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title"><h2>Preguntas Frecuentes</h2></div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">1 - ¿Cómo solicito un presupuesto? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Elegí la opción en la página web con las medidas y diseño que necesitas, automáticamente te conectará con nuestro WhatsApp para enviarte un presupuesto detallado.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">2 - ¿Hacen trabajos a medida o estándar? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Somos fabricantes directos de aberturas en diferentes medidas y diseños.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">3 - ¿Dónde están ubicados? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Estamos ubicados en Sayago 964 esquina Tacuabe. (Montevideo)</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">4 - ¿Qué medios de pago aceptan? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">Trabajamos transferencia bancaria, efectivo, Handy post o Mercado pago.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE DISEÑOS -->
+    <div id="circleDetailModal" class="modal">
+        <div class="modal-content" style="max-width: 750px;">
+            <span class="close-modal" id="closeCircleModalBtn">&times;</span>
+            <h2 class="modal-title" id="circleModalTitle">Configurar Diseño</h2>
+            
+            <div style="width: 100%; height: 230px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;">
+                <img id="circleModalImg" src="" alt="Imagen de Referencia" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            </div>
+
+            <p id="circleModalDesc" style="color: var(--gray-text); margin-bottom: 20px; font-size: 0.95rem; text-align: center;"></p>
+
+            <div style="background: var(--light-bg); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <h4 style="margin-bottom: 10px; font-size: 1rem; color: var(--primary-color);">Aberturas, Medidas y Cantidades:</h4>
+                <div id="dynamicRowsContainer"></div>
+                <button type="button" class="btn btn-secondary" onclick="addCustomRow()" style="padding: 6px 15px; font-size: 0.85rem; margin-top: 8px;"><i class="fa-solid fa-plus"></i> Agregar otra medida</button>
+            </div>
+
+            <div class="cart-input-group" style="margin-bottom: 20px;">
+                <label style="font-weight: 600; color: var(--dark-color); margin-bottom: 6px; display: block;">Describe tu producto y agrega lo que necesites (haz referencia a la imagen de muestra):</label>
+                <textarea id="circleGeneralNotes" rows="3" placeholder="Ej: Necesito este diseño en color negro aluar, con vidrio DVH y entrega en Montevideo..." style="width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.9rem;"></textarea>
+            </div>
+
+            <button class="btn btn-success" id="circleQuoteBtn" style="width: 100%;">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Solicitud de Cotización por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- MODALES DE CATÁLOGOS -->
+    <div id="standardModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal close-standard-btn">&times;</span>
+            <h2 class="modal-title">Catálogo Ventanas Estándar (2 Hojas - Vidrio 4mm)</h2>
+            <p style="text-align: center; color: var(--gray-text); margin-bottom: 15px;">Selecciona la cantidad antes de agregar al carrito.</p>
+
+            <div class="series-header">SERIE 20</div>
+            <div class="table-responsive">
+                <table class="pricing-table">
+                    <thead><tr><th>Medida</th><th>Hojas</th><th>Cristal</th><th>Precio ($)</th><th>Cantidad</th><th>Acción</th></tr></thead>
+                    <tbody>
+                        <tr><td>0.50 x 0.30</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 1.450,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_1', -1)">-</button><input type="number" id="qty_s20_1" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_1', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_1', 'Ventana Serie 20 - 0.50x0.30', 1450)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.60 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 1.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_2', -1)">-</button><input type="number" id="qty_s20_2" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_2', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_2', 'Ventana Serie 20 - 0.60x0.40', 1790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.290,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_3', -1)">-</button><input type="number" id="qty_s20_3" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_3', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_3', 'Ventana Serie 20 - 0.80x0.40', 2290)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 0.80</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_4', -1)">-</button><input type="number" id="qty_s20_4" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_4', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_4', 'Ventana Serie 20 - 0.80x0.80', 2690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_5', -1)">-</button><input type="number" id="qty_s20_5" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_5', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_5', 'Ventana Serie 20 - 1.00x0.40', 2690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 0.80</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_6', -1)">-</button><input type="number" id="qty_s20_6" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_6', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_6', 'Ventana Serie 20 - 1.00x0.80', 2790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.990,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_7', -1)">-</button><input type="number" id="qty_s20_7" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_7', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_7', 'Ventana Serie 20 - 1.00x1.00', 2990)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_8', -1)">-</button><input type="number" id="qty_s20_8" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_8', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_8', 'Ventana Serie 20 - 1.20x0.40', 2690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.50</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_9', -1)">-</button><input type="number" id="qty_s20_9" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_9', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_9', 'Ventana Serie 20 - 1.20x0.50', 2790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.60</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.990,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_10', -1)">-</button><input type="number" id="qty_s20_10" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_10', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_10', 'Ventana Serie 20 - 1.20x0.60', 2990)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.190,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_11', -1)">-</button><input type="number" id="qty_s20_11" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_11', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_11', 'Ventana Serie 20 - 1.20x1.00', 3190)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 1.20</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.590,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_12', -1)">-</button><input type="number" id="qty_s20_12" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_12', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_12', 'Ventana Serie 20 - 1.20x1.20', 3590)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_13', -1)">-</button><input type="number" id="qty_s20_13" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_13', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_13', 'Ventana Serie 20 - 1.50x1.00', 3790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.20</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.990,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_14', -1)">-</button><input type="number" id="qty_s20_14" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_14', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_14', 'Ventana Serie 20 - 1.50x1.20', 3990)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 5.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_15', -1)">-</button><input type="number" id="qty_s20_15" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_15', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_15', 'Ventana Serie 20 - 1.50x2.00', 5690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 5.590,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s20_16', -1)">-</button><input type="number" id="qty_s20_16" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s20_16', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s20_16', 'Ventana Serie 20 - 1.20x2.00', 5590)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="series-header">SERIE 25</div>
+            <div class="table-responsive">
+                <table class="pricing-table">
+                    <thead><tr><th>Medida</th><th>Hojas</th><th>Cristal</th><th>Precio ($)</th><th>Cantidad</th><th>Acción</th></tr></thead> <tbody>
+                        <tr><td>0.50 x 0.30</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 1.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_1', -1)">-</button><input type="number" id="qty_s25_1" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_1', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_1', 'Ventana Serie 25 - 0.50x0.30', 1690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.60 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.290,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_2', -1)">-</button><input type="number" id="qty_s25_2" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_2', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_2', 'Ventana Serie 25 - 0.60x0.40', 2290)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 2.890,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_3', -1)">-</button><input type="number" id="qty_s25_3" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_3', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_3', 'Ventana Serie 25 - 0.80x0.40', 2890)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 0.80</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_4', -1)">-</button><input type="number" id="qty_s25_4" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_4', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_4', 'Ventana Serie 25 - 0.80x0.80', 3790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.490,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_5', -1)">-</button><input type="number" id="qty_s25_5" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_5', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_5', 'Ventana Serie 25 - 1.00x0.40', 3490)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 0.80</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 4.090,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_6', -1)">-</button><input type="number" id="qty_s25_6" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_6', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_6', 'Ventana Serie 25 - 1.00x0.80', 4090)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.00 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 4.490,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_7', -1)">-</button><input type="number" id="qty_s25_7" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_7', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_7', 'Ventana Serie 25 - 1.00x1.00', 4490)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.40</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 3.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_8', -1)">-</button><input type="number" id="qty_s25_8" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_8', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_8', 'Ventana Serie 25 - 1.20x0.40', 3790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.50</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 4.090,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_9', -1)">-</button><input type="number" id="qty_s25_9" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_9', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_9', 'Ventana Serie 25 - 1.20x0.50', 4090)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 0.60</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 4.090,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_10', -1)">-</button><input type="number" id="qty_s25_10" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_10', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_10', 'Ventana Serie 25 - 1.20x0.60', 4090)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 5.290,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_11', -1)">-</button><input type="number" id="qty_s25_11" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_11', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_11', 'Ventana Serie 25 - 1.20x1.00', 5290)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 1.20</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 6.190,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_12', -1)">-</button><input type="number" id="qty_s25_12" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_12', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_12', 'Ventana Serie 25 - 1.20x1.20', 6190)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 6.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_13', -1)">-</button><input type="number" id="qty_s25_13" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_13', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_13', 'Ventana Serie 25 - 1.50x1.00', 6690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.20</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 6.890,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_14', -1)">-</button><input type="number" id="qty_s25_14" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_14', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_14', 'Ventana Serie 25 - 1.50x1.20', 6890)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 9.490,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_15', -1)">-</button><input type="number" id="qty_s25_15" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_15', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_15', 'Ventana Serie 25 - 1.50x2.00', 9490)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 8.640,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_16', -1)">-</button><input type="number" id="qty_s25_16" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_16', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_16', 'Ventana Serie 25 - 1.20x2.00', 8640)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr style="background-color: #e8f4f8;"><td>2.00 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 10.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_17', -1)">-</button><input type="number" id="qty_s25_17" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_17', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_17', 'Ventana Serie 25 - 2.00x2.00', 10790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr style="background-color: #e8f4f8;"><td>2.50 x 2.00</td><td>2 Hojas</td><td>Vidrio 4mm</td><td>$ 12.350,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_s25_18', -1)">-</button><input type="number" id="qty_s25_18" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_s25_18', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_s25_18', 'Ventana Serie 25 - 2.50x2.00', 12350)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 20px;"><button class="btn btn-secondary close-standard-btn">Cerrar Ventana</button></div>
+        </div>
+    </div>
+
+    <div id="monoblockModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal close-monoblock-btn">&times;</span>
+            <h2 class="modal-title">Catálogo Ventanas Monoblock (Serie 20)</h2>
+            <div class="series-header">SERIE 20 - Con Cortina de Enrollar integrada</div>
+            <div class="table-responsive">
+                <table class="pricing-table">
+                    <thead><tr><th>Medida</th><th>Serie</th><th>Cortina</th><th>Precio ($)</th><th>Cantidad</th><th>Acción</th></tr></thead>
+                    <tbody>
+                        <tr><td>1.00 x 1.00</td><td>Serie 20</td><td>PVC Blanco (Española)</td><td>$ 7.490,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_mb_1', -1)">-</button><input type="number" id="qty_mb_1" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_mb_1', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_mb_1', 'Monoblock Serie 20 - 1.00x1.00', 7490)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 1.00</td><td>Serie 20</td><td>PVC Blanco (Española)</td><td>$ 7.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_mb_2', -1)">-</button><input type="number" id="qty_mb_2" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_mb_2', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_mb_2', 'Monoblock Serie 20 - 1.20x1.00', 7790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.00</td><td>Serie 20</td><td>PVC Blanco (Española)</td><td>$ 8.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_mb_3', -1)">-</button><input type="number" id="qty_mb_3" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_mb_3', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_mb_3', 'Monoblock Serie 20 - 1.50x1.00', 8790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 1.20</td><td>Serie 20</td><td>PVC Blanco (Española)</td><td>$ 8.990,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_mb_4', -1)">-</button><input type="number" id="qty_mb_4" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_mb_4', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_mb_4', 'Monoblock Serie 20 - 1.50x1.20', 8990)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>Serie 20</td><td>PVC Blanco (Española)</td><td>$ 13.290,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_mb_5', -1)">-</button><input type="number" id="qty_mb_5" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_mb_5', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_mb_5', 'Monoblock Serie 20 - 1.50x2.00', 13290)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align: center; font-weight: 600; color: #0d6efd; margin-top: 15px;">* Todas van con cortina de enrollar en PVC blanco - procedencia española.</p>
+            <div style="text-align: center; margin-top: 20px;"><button class="btn btn-secondary close-monoblock-btn">Cerrar Ventana</button></div>
+        </div>
+    </div>
+
+    <div id="doorsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal close-doors-btn">&times;</span>
+            <h2 class="modal-title">Catálogo Puertas Estándar de Aluminio</h2>
+            <div class="series-header">PUERTAS SIMPLES</div>
+            <div class="table-responsive">
+                <table class="pricing-table">
+                    <thead><tr><th>Medida</th><th>Modelo</th><th>Precio ($)</th><th>Cantidad</th><th>Acción</th></tr></thead>
+                    <tbody>
+                        <tr><td>0.80 x 2.00</td><td>Todo Vidrio</td><td>$ 7.590,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_1', -1)">-</button><input type="number" id="qty_p_1" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_1', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_1', 'Puerta Simple 0.80x2.00 - Todo Vidrio', 7590)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.90 x 2.00</td><td>Todo Vidrio</td><td>$ 9.090,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_2', -1)">-</button><input type="number" id="qty_p_2" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_2', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_2', 'Puerta Simple 0.90x2.00 - Todo Vidrio', 9090)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 2.00</td><td>Mitad Aluminio</td><td>$ 7.990,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_3', -1)">-</button><input type="number" id="qty_p_3" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_3', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_3', 'Puerta Simple 0.80x2.00 - Mitad Aluminio', 7990)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.90 x 2.00</td><td>Mitad Aluminio</td><td>$ 9.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_4', -1)">-</button><input type="number" id="qty_p_4" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_4', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_4', 'Puerta Simple 0.90x2.00 - Mitad Aluminio', 9690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.80 x 2.00</td><td>Todo Aluminio</td><td>$ 10.790,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_5', -1)">-</button><input type="number" id="qty_p_5" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_5', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_5', 'Puerta Simple 0.80x2.00 - Todo Aluminio', 10790)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>0.90 x 2.00</td><td>Todo Aluminio</td><td>$ 14.890,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_p_6', -1)">-</button><input type="number" id="qty_p_6" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_p_6', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_p_6', 'Puerta Simple 0.90x2.00 - Todo Aluminio', 14890)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="series-header">PUERTAS DOBLE BATIENTE</div>
+            <div class="table-responsive">
+                <table class="pricing-table">
+                    <thead><tr><th>Medida</th><th>Modelo</th><th>Precio ($)</th><th>Cantidad</th><th>Acción</th></tr></thead>
+                    <tbody>
+                        <tr><td>1.20 x 2.00</td><td>Todo Vidrio</td><td>$ 14.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_1', -1)">-</button><input type="number" id="qty_pd_1" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_1', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_1', 'Puerta Doble 1.20x2.00 - Todo Vidrio', 14690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 2.00</td><td>Mitad Aluminio</td><td>$ 15.690,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_2', -1)">-</button><input type="number" id="qty_pd_2" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_2', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_2', 'Puerta Doble 1.20x2.00 - Mitad Aluminio', 15690)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.20 x 2.00</td><td>Todo Aluminio</td><td>$ 20.090,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_3', -1)">-</button><input type="number" id="qty_pd_3" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_3', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_3', 'Puerta Doble 1.20x2.00 - Todo Aluminio', 20090)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>Todo Vidrio</td><td>$ 18.290,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_4', -1)">-</button><input type="number" id="qty_pd_4" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_4', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_4', 'Puerta Doble 1.50x2.00 - Todo Vidrio', 18290)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>Mitad Aluminio</td><td>$ 20.390,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_5', -1)">-</button><input type="number" id="qty_pd_5" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_5', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_5', 'Puerta Doble 1.50x2.00 - Mitad Aluminio', 20390)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                        <tr><td>1.50 x 2.00</td><td>Todo Aluminio</td><td>$ 21.590,00</td><td><div class="table-qty-box"><button class="qty-btn" onclick="adjustInputQty('qty_pd_6', -1)">-</button><input type="number" id="qty_pd_6" value="1" min="1" class="qty-input"><button class="qty-btn" onclick="adjustInputQty('qty_pd_6', 1)">+</button></div></td><td><button onclick="addWithQty(this, 'qty_pd_6', 'Puerta Doble 1.50x2.00 - Todo Aluminio', 21590)" class="btn btn-success" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-cart-plus"></i> Agregar</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 20px;"><button class="btn btn-secondary close-doors-btn">Cerrar Ventana</button></div>
+        </div>
+    </div>
+
+    <!-- CARRITO FLOTANTE -->
+    <div class="cart-float" id="openCartModal">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-badge" id="cartCount">0</span>
+    </div>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-modal close-cart-btn">&times;</span>
+            <h2 class="modal-title"><i class="fa-solid fa-cart-shopping"></i> Tu Carrito de Pedido</h2>
+            <div id="cartItemsContainer"></div>
+            <div class="checkout-form-box" id="checkoutFormBox">
+                <h4><i class="fa-solid fa-user-check"></i> Datos para Confirmar Pedido</h4>
+                <div class="cart-input-group"><label>Nombre y Apellido *</label><input type="text" id="cartCustomerName" placeholder="Ej: Juan Pérez"></div>
+                <div class="cart-input-group"><label>Dirección de Entrega *</label><input type="text" id="cartCustomerAddress" placeholder="Ej: Av. Italia 1234, Montevideo"></div>
+                <div class="cart-input-group">
+                    <label>Forma de Pago *</label>
+                    <select id="cartPaymentMethod" onchange="updateCartUI()">
+                        <option value="Transferencia Bancaria">Transferencia Bancaria (Sin recargo)</option>
+                        <option value="Mercado Pago">Mercado Pago (+10% Recargo)</option>
+                    </select>
+                    <div id="mpFeeNote" class="mp-fee-note">* Mercado Pago incluye un 10% de recargo sobre el total.</div>
+                </div>
+            </div>
+            <div class="cart-total" id="cartTotalText">Total: $0,00</div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-secondary close-cart-btn" style="flex: 1;">Seguir Viendo</button>
+                <button class="btn btn-success" id="checkoutCartBtn" style="flex: 2;"><i class="fa-brands fa-whatsapp"></i> Finalizar Pedido por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/59898182510?text=Hola,%20quisiera%20recibir%20más%20información." class="whatsapp-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <!-- PIE DE PÁGINA FINAL -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>CyL Aberturas</h3>
+                    <p>Especialistas en aluminio, puertas, ventanas y soluciones a medida para todo Montevideo.</p>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffc107;"></i> Av. Sayago 964, 12900 Montevideo, Dpto. de Montevideo</p>
+                    <p><i class="fa-solid fa-phone" style="color: #ffc107;"></i> 098 182 510</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/59898182510" target="_blank" class="whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/cylaberturas1/" target="_blank" class="facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/cylaberturas/" target="_blank" class="instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://maps.google.com/?q=Av.+Sayago+964,+Montevideo" target="_blank" class="map-container" title="Ver ubicación en Google Maps">
+                        <img src="https://i.ibb.co/C5cD3Nxz/Whats-App-Image-2026-10-12-at-4-13-37-PM.jpg" alt="Local Comercial CyL Aberturas" loading="lazy">
+                        <div class="map-overlay"><i class="fa-solid fa-map-location-dot"></i> Av. Sayago 964, Montevideo</div>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CyL Aberturas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para ocultar la pantalla de inicio profesional al cargar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                if (splash) {
+                    splash.classList.add('fade-out');
+                }
+            }, 1300); // Duración de presentación inicial
+        });
+
+        window.addEventListener('scroll', revealCards);
+        window.addEventListener('load', revealCards);
+        function revealCards() {
+            const cards = document.querySelectorAll('.product-card');
+            const windowHeight = window.innerHeight;
+            cards.forEach(card => {
+                if (card.getBoundingClientRect().top < windowHeight - 80) card.classList.add('reveal-active');
+            });
+        }
+
+        // Script para desplegar acordeón de Preguntas Frecuentes (FAQ)
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        let cart = [];
+
+        function adjustInputQty(id, change) {
+            const input = document.getElementById(id);
+            if (input) {
+                let val = parseInt(input.value) || 1;
+                val += change;
+                if (val < 1) val = 1;
+                input.value = val;
+            }
+        }
+
+        function addWithQty(btn, inputId, title, price) {
+            const input = document.getElementById(inputId);
+            const qty = input ? parseInt(input.value) || 1 : 1;
+            
+            const existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.qty += qty;
+            } else {
+                cart.push({ title, price, qty });
+            }
+            updateCartUI();
+            alert("¡Producto agregado al carrito!");
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const badge = document.getElementById('cartCount');
+            const totalText = document.getElementById('cartTotalText');
+            const mpFeeNote = document.getElementById('mpFeeNote');
+            
+            container.innerHTML = '';
+            let total = 0;
+            let totalQty = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:var(--gray-text); padding: 20px;">Tu carrito está vacío.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.qty;
+                    totalQty += item.qty;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <div>
+                            <div class="cart-item-title">${item.title}</div>
+                            <div class="cart-item-price">$ ${item.price.toLocaleString()} x ${item.qty}</div>
+                        </div>
+                        <div class="cart-controls">
+                            <button class="cart-qty-btn" onclick="changeCartQty(${index}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="cart-qty-btn" onclick="changeCartQty(${index}, 1)">+</button>
+                            <button class="btn btn-danger" onclick="removeCartItem(${index})" style="padding: 2px 6px; font-size: 0.75rem;"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+
+            const paymentMethod = document.getElementById('cartPaymentMethod').value;
+            if (paymentMethod === 'Mercado Pago') {
+                total = total * 1.10;
+                if(mpFeeNote) mpFeeNote.style.display = 'block';
+            } else {
+                if(mpFeeNote) mpFeeNote.style.display = 'none';
+            }
+
+            if(badge) badge.innerText = totalQty;
+            if(totalText) totalText.innerText = `Total: $ ${Math.round(total).toLocaleString()}`;
+        }
+
+        function changeCartQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty < 1) cart[index].qty = 1;
+            updateCartUI();
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        document.getElementById('checkoutCartBtn').onclick = function() {
+            if (cart.length === 0) {
+                alert("El carrito está vacío.");
+                return;
+            }
+            const name = document.getElementById('cartCustomerName').value.trim();
+            const address = document.getElementById('cartCustomerAddress').value.trim();
+            const payment = document.getElementById('cartPaymentMethod').value;
+
+            if (!name || !address) {
+                alert("Por favor completa tu nombre y dirección de entrega.");
+                return;
+            }
+
+            let text = `*PEDIDO DESDE EL CARRITO WEB*%0A%0A*Cliente:* ${encodeURIComponent(name)}%0A*Dirección:* ${encodeURIComponent(address)}%0A*Forma de Pago:* ${encodeURIComponent(payment)}%0A%0A*Productos:*%0A`;
+            
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                text += `• ${item.qty}x ${item.title} ($ ${item.price.toLocaleString()} c/u)%0A`;
+            });
+
+            if (payment === 'Mercado Pago') {
+                subtotal = subtotal * 1.10;
+                text += `%0A*Recargo Mercado Pago (10%):* Incluido`;
+            }
+
+            text += `%0A*TOTAL FINAL:* $ ${Math.round(subtotal).toLocaleString()}`;
+
+            window.open(`https://wa.me/59898182510?text=${text}`, '_blank');
+        };
+
+        const circleModelsData = {
+            1: { title: "Monoblock negro", desc: "Sistema compacto de aluminio negro con cortina de enrollar integrada de alta hermeticidad.", img: "https://i.ibb.co/wZFgZvbC/643901228-1500438388749638-9094620843654075251-n.jpg" },
+            2: { title: "Ventana Colonial", desc: "Diseño tradicional con perfiles estéticos y acabados rústicos de alta durabilidad.", img: "https://i.ibb.co/8njwmbXP/577833759-1403426591784152-9110541014077908932-n.jpg" },
+            3: { title: "Monoblock blanco", desc: "Sistema monoblock integral en aluminio blanco con cortina incorporada.", img: "https://i.ibb.co/KpGZcRWN/582951910-1414367890690022-782879907260960151-n.jpg" },
+            4: { title: "Puertas de aluminio", desc: "Puertas reforzadas para exterior o interior con máxima seguridad y cierre estanco.", img: "https://i.ibb.co/whDjjf4L/577663335-1403426861784125-1481253770357942345-n.jpg" },
+            5: { title: "Ventanas a medida", desc: "Fabricación totalmente personalizada según los requerimientos exactos de tu obra.", img: "https://i.ibb.co/GfyqkC3D/571319286-1397624182364393-4471381667043964173-n.jpg" },
+            6: { title: "Monoblock a medida", desc: "Aberturas monoblock con cortina de enrollar fabricadas a la medida exacta solicitada.", img: "https://i.ibb.co/b5wJNbsP/742277997-1623931336400342-937689476879455317-n.jpg" },
+            7: { title: "Ventanas proyectantes", desc: "Sistema proyectante superior ideal para baños, cocinas o ventilaciones auxiliares.", img: "https://i.ibb.co/BKnf7Sm5/Whats-App-Image-2026-10-12-at-4-03-52-PM-1.jpg" },
+            8: { title: "Ventana tabaquera", desc: "Ventana deslizante vertical clásica para paños compactos o ventilación específica.", img: "https://i.ibb.co/jZ4Mcyk4/Whats-App-Image-2026-10-12-at-4-03-52-PM.jpg" },
+            9: { title: "Paño fijo a medida", desc: "Estructuras fijas de cristal continuo para aportar máxima iluminación natural a los espacios.", img: "https://i.ibb.co/Tx8qX9b9/Whats-App-Image-2026-10-12-at-4-03-51-PM-1.jpg" },
+            10: { title: "Ventanas batientes", desc: "Apertura lateral u oscilobatiente con bisagras reforzadas y excelente ventilación.", img: "https://i.ibb.co/6RB5Ywq0/Whats-App-Image-2026-10-12-at-4-03-51-PM.jpg" }
+        };
+
+        const circleModal = document.getElementById("circleDetailModal");
+        let activeModelTitle = "";
+
+        function openCircleDetail(id) {
+            const model = circleModelsData[id];
+            if (!model) return;
+            activeModelTitle = model.title;
+            document.getElementById("circleModalTitle").innerText = model.title;
+            document.getElementById("circleModalDesc").innerText = model.desc;
+            document.getElementById("circleModalImg").src = model.img;
+            document.getElementById("circleGeneralNotes").value = "";
+            
+            document.getElementById("dynamicRowsContainer").innerHTML = '';
+            addCustomRow();
+
+            circleModal.style.display = "block";
+        }
+
+        function addCustomRow() {
+            const container = document.getElementById("dynamicRowsContainer");
+            const rowDiv = document.createElement("div");
+            rowDiv.className = "custom-measure-row";
+            rowDiv.style.cssText = "display: flex; gap: 10px; margin-bottom: 8px; align-items: center;";
+            rowDiv.innerHTML = `
+                <input type="text" placeholder="Medida (Ej: 1.20 x 1.00 m)" class="row-measure" style="flex: 2; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.9rem;">
+                <input type="number" value="1" min="1" class="row-qty" style="flex: 1; padding: 8px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.9rem;" placeholder="Cant">
+                <button type="button" class="btn btn-danger" onclick="this.parentElement.remove()" style="padding: 7px 10px;"><i class="fa-solid fa-trash"></i></button>
+            `;
+            container.appendChild(rowDiv);
+        }
+
+        document.getElementById("closeCircleModalBtn").onclick = () => circleModal.style.display = "none";
+
+        document.getElementById("circleQuoteBtn").onclick = function() {
+            const measuresRows = document.querySelectorAll(".custom-measure-row");
+            const generalNotes = document.getElementById("circleGeneralNotes").value.trim();
+            const whatsappNumber = "59898182510";
+
+            if (measuresRows.length === 0) {
+                alert("Por favor agrega al menos una medida.");
+                return;
+            }
+
+            let detailsList = "";
+            measuresRows.forEach((row) => {
+                const measure = row.querySelector(".row-measure").value.trim();
+                const qty = row.querySelector(".row-qty").value;
+                if (measure) {
+                    detailsList += `• ${qty}x ${measure}%0A`;
+                }
+            });
+
+            if (!detailsList) {
+                alert("Por favor completa la medida de las aberturas.");
+                return;
+            }
+
+            let text = `*SOLICITUD DE COTIZACIÓN DE DISEÑO*%0A%0A*Modelo de Referencia:* ${encodeURIComponent(activeModelTitle)}%0A%0A*Medidas y Cantidades:*%0A${detailsList}`;
+            
+            if (generalNotes) {
+                text += `%0A*Descripción / Detalles:* ${encodeURIComponent(generalNotes)}`;
+            }
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+        };
+
+        const slide = document.getElementById("heroCarouselSlide");
+        let currentIdx = 0;
+        function showSlide(index) {
+            const total = slide.querySelectorAll("img").length;
+            if (index >= total) currentIdx = 0;
+            else if (index < 0) currentIdx = total - 1;
+            else currentIdx = index;
+            slide.style.transform = `translateX(-${currentIdx * 100}%)`;
+        }
+        document.getElementById("nextHeroBtn").onclick = () => showSlide(currentIdx + 1);
+        document.getElementById("prevHeroBtn").onclick = () => showSlide(currentIdx - 1);
+        setInterval(() => showSlide(currentIdx + 1), 4000);
+
+        const standardModal = document.getElementById("standardModal");
+        const monoblockModal = document.getElementById("monoblockModal");
+        const doorsModal = document.getElementById("doorsModal");
+        const cartModal = document.getElementById("cartModal");
+
+        document.getElementById("openStandardModal").onclick = () => standardModal.style.display = "block";
+        document.querySelectorAll(".close-standard-btn").forEach(b => b.onclick = () => standardModal.style.display = "none");
+        document.getElementById("openMonoblockModal").onclick = () => monoblockModal.style.display = "block";
+        document.querySelectorAll(".close-monoblock-btn").forEach(b => b.onclick = () => monoblockModal.style.display = "none");
+        document.getElementById("openDoorsModal").onclick = () => doorsModal.style.display = "block";
+        document.querySelectorAll(".close-doors-btn").forEach(b => b.onclick = () => doorsModal.style.display = "none");
+        document.getElementById("openCartModal").onclick = () => cartModal.style.display = "block";
+        document.querySelectorAll(".close-cart-btn").forEach(btn => btn.onclick = () => cartModal.style.display = "none");
+
+        document.getElementById('leadForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const fileInput = document.getElementById('projectFile');
+            const hasFile = fileInput.files.length > 0 ? "Sí (Archivo adjuntado)" : "No adjuntado";
+
+            let text = `*SOLICITUD DE PRESUPUESTO / CONSULTA*%0A%0A*Cliente:* ${encodeURIComponent(name)}%0A*Tel:* ${encodeURIComponent(phone)}%0A*Dirección:* ${encodeURIComponent(address)}%0A*Descripción y Medidas:* ${encodeURIComponent(message)}%0A*Plano / Croquis:* ${encodeURIComponent(hasFile)}`;
+
+            window.open(`https://wa.me/59898182510?text=${text}`, '_blank');
+        };
+
+        window.onclick = (e) => {
+            if (e.target == circleModal) circleModal.style.display = "none";
+            if (e.target == standardModal) standardModal.style.display = "none";
+            if (e.target == monoblockModal) monoblockModal.style.display = "none";
+            if (e.target == doorsModal) doorsModal.style.display = "none";
+            if (e.target == cartModal) cartModal.style.display = "none";
+        };
+    </script>
+</body>
+</html>
