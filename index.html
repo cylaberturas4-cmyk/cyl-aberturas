@@ -29,7 +29,6 @@
             line-height: 1.6; 
         }
 
-        /* PANTALLA DE INICIO PROFESIONAL (SIN FONDO CUADRADO) */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -278,7 +277,7 @@
     <!-- PANTALLA DE INICIO / SPLASH SCREEN PROFESIONAL -->
     <div id="splash-screen">
         <div class="splash-logo-container">
-            <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas">
+            <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas" fetchpriority="high">
             <div class="splash-title">CyL Aberturas</div>
             <div class="splash-subtitle">La mejor calidad</div>
         </div>
@@ -287,7 +286,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo-container">
-                <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas" loading="lazy">
+                <img src="https://i.ibb.co/pjdKHKZH/532417440-1325476986245780-503876494306305119-n.jpg" alt="Logo CyL Aberturas" fetchpriority="high">
                 <span class="logo-slogan">La mejor calidad</span>
             </a>
             <ul class="nav-links">
@@ -322,7 +321,9 @@
                 <button class="carousel-btn next-btn" id="nextHeroBtn">&#10095;</button>
             </div>
         </div>
-    </section><section id="productos" class="products">
+    </section>
+
+    <section id="productos" class="products">
         <div class="container">
             <div class="section-title">
                 <h2>Soluciones Destacadas</h2>
@@ -381,9 +382,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="beneficios">
+    </section><section id="beneficios">
         <div class="container">
             <div class="section-title">
                 <h2>¿Por qué elegirnos?</h2>
@@ -658,14 +657,13 @@
     </footer>
 
     <script>
-        // Script para ocultar la pantalla de inicio profesional al cargar
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const splash = document.getElementById('splash-screen');
                 if (splash) {
                     splash.classList.add('fade-out');
                 }
-            }, 1300); // Duración de presentación inicial
+            }, 1300);
         });
 
         window.addEventListener('scroll', revealCards);
@@ -678,7 +676,6 @@
             });
         }
 
-        // Script para desplegar acordeón de Preguntas Frecuentes (FAQ)
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
