@@ -1,0 +1,28 @@
+{
+  "name": "cyl-aberturas",
+  "version": "1.0.0",
+  "description": "CyL Aberturas - La mejor calidad en aberturas",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cylaberturas4-cmyk/cyl-aberturas.git"
+  },
+  "keywords": [
+    "aberturas",
+    "ventanas",
+    "puertas"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cylaberturas4-cmyk/cyl-aberturas/issues"
+  },
+  "homepage": "https://github.com/cylaberturas4-cmyk/cyl-aberturas#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
